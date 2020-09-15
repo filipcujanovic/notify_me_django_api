@@ -5,6 +5,7 @@ class BussesSerializer(serializers.HyperlinkedModelSerializer):
     created_at = serializers.ReadOnlyField()
     updated_at = serializers.ReadOnlyField()
     deleted_at = serializers.ReadOnlyField()
+    id = serializers.ReadOnlyField()
     
     class Meta:
         model = Busses
@@ -16,6 +17,7 @@ class BussesUsersSerializer(serializers.HyperlinkedModelSerializer):
     created_at = serializers.ReadOnlyField()
     updated_at = serializers.ReadOnlyField()
     deleted_at = serializers.ReadOnlyField()
+    id = serializers.ReadOnlyField()
 
     class Meta:
         model = BussesUsers
@@ -27,6 +29,7 @@ class CurrentBussesRouteChangesSerializer(serializers.HyperlinkedModelSerializer
     created_at = serializers.ReadOnlyField()
     updated_at = serializers.ReadOnlyField()
     deleted_at = serializers.ReadOnlyField()
+    id = serializers.ReadOnlyField()
 
     class Meta:
         model = CurrentBussesRouteChanges

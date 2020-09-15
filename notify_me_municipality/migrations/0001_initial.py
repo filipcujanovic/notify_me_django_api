@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='NotifyMunicipalitiesUsers',
             fields=[
-                ('municipalitiy_id', models.IntegerField(primary_key=True, serialize=False)),
+                ('municipality_id', models.IntegerField(primary_key=True, serialize=False)),
                 ('user_id', models.IntegerField()),
                 ('created_at', models.DateTimeField()),
                 ('updated_at', models.DateTimeField()),

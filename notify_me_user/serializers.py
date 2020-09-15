@@ -1,7 +1,9 @@
 from rest_framework import serializers
-from notify_me_user.models import NotifyUser
+from django.contrib.auth.models import User
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.ReadOnlyField()
+
     class Meta:
-        model = Busses
-        fields = ['id', 'bus_route_number', 'created_at', 'updated_at', 'deleted_at']
+        model = User
+        fields = ['id', 'first_name', 'last_name', 'username', 'email', 'is_active', 'is_superuser']

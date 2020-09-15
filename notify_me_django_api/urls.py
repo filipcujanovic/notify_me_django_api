@@ -1,22 +1,16 @@
-"""notify_me_django_api URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from notify_me_bus.urls import router as bus_router
+from notify_me_municipality.urls import router as municipalities_router
+from notify_me_user.urls import router as users_router
+
+router = DefaultRouter()
+router.registry.extend(bus_router.registry)
+router.registry.extend(municipalities_router.registry)
+router.registry.extend(users_router.registry)
+
 
 urlpatterns = [
-    path('', include('notify_me_bus.urls')),
-    path('api-auth/', include('rest_framework.urls')),
+    path('', include('notify_me_auth.urls')),
+    path('', include(router.urls)),
 ]

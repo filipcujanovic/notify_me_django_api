@@ -1,10 +1,3 @@
-# This is an auto-generated Django model module.
-# You'll have to do the following manually to clean this up:
-#   * Rearrange models' order
-#   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
-#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
-# Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 from datetime import datetime
 
@@ -16,12 +9,7 @@ class Busses(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'notify_busses'
-
-    def delete(self):
-        self.deleted_at = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-        self.save()
-
+        db_table = 'busses'
 
 class BussesUsers(models.Model):
     bus_id = models.IntegerField()
@@ -32,13 +20,8 @@ class BussesUsers(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'notify_busses_users'
-        unique_together = (('bus_id', 'user_id'),)
-
-    def delete(self):
-        self.deleted_at = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-        self.save()
-
+        db_table = 'busses_users'
+        unique_together = (('bus_id', 'user_id'))
 
 class CurrentBussesRouteChanges(models.Model):
     bus_id = models.IntegerField()
@@ -49,8 +32,4 @@ class CurrentBussesRouteChanges(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'notify_current_busses_route_changes'
-
-    def delete(self):
-        self.deleted_at = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-        self.save()
+        db_table = 'current_busses_route_changes'
