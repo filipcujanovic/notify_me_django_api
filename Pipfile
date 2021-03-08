@@ -10,6 +10,9 @@ django = "*"
 djangorestframework = "*"
 python-dotenv = "*"
 mysqlclient = "*"
+djangorestframework-filters = "==1.0.0.dev0"
+django-cors-headers = "*"
+six = "*"
 
 [requires]
 python_version = "3.7"
