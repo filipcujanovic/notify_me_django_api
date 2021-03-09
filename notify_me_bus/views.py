@@ -2,12 +2,15 @@ from notify_me_bus.serializers import BussesSerializer, BussesUsersSerializer, C
 from notify_me_bus.models import Busses, BussesUsers, CurrentBussesRouteChanges
 from rest_framework import viewsets
 from rest_framework import permissions
-
+from rest_framework import filters
 
 class BussesViewSet(viewsets.ModelViewSet):
     queryset = Busses.objects.all()
     serializer_class = BussesSerializer
     permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = ['bus_route_number']
+    ordering = ['bus_route_number']
 
     def get_queryset(self):
         if (self.request.query_params.get('deleted')):
