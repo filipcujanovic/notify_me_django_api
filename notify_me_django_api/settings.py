@@ -11,10 +11,7 @@ DEBUG = os.environ.get('DEBUG')
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-ALLOWED_HOSTS = [
-	'bolic.space',
-	'friends.apps.bolic.space'
-]
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(',')
 
 
 INSTALLED_APPS = [
